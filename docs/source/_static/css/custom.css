@@ -1,0 +1,99 @@
+/* Custom styles for furo */
+
+.inline-style-none {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  font-family: monospace;
+}
+
+.inline-style-none:not(:has(ul)){
+  display: flex;
+  gap: 1rem;
+}
+
+.inline-style-none ul {
+  list-style: none;
+  border-top: 1px solid lightgrey;
+}
+
+.inline-style-none ul:not(:has(ul)){
+  display: flex;
+  flex-wrap: wrap;
+  gap: .2rem;
+}
+
+.inline-style-none ul:not(:has(ul)) li:has(strong) {
+  flex-basis: 100%;
+}
+
+.inline-style-none li strong,
+.inline-style-none ul li strong {
+  white-space: nowrap;
+}
+
+.inline-style-none ul > li > p:has(em) {
+  padding-left: 1rem;
+}
+
+.inline-style-none li > p > strong{
+  padding: .1rem .25rem;
+  border-radius: .25rem;
+  border: 1px solid;
+}
+
+.inline-style-none li > p > strong{
+  padding: .1rem .25rem;
+  border-radius: .25rem;
+  border: 1px solid;
+}
+
+.inline-style-none li > p:has(strong)::after {
+  content: "→";
+  margin-left: .2rem;
+}
+
+.inline-style-none ul li {
+  padding-top: 0.25rem
+}
+
+.inline-style-none ul  {
+  border-left: 1px solid;
+  border-image: linear-gradient(180deg, darkgray, lightgray) 1;
+  border-top: none;
+}
+
+.indicator-red {
+  color: rgba(255, 0, 0, 1);
+}
+.indicator-green {
+  color: rgba(0, 255, 0, 1);
+}
+.indicator-blue {
+  color: rgba(0, 0, 255, 1);
+}
+.indicator-yellow {
+  color: rgba(255, 255, 0, 1);
+}
+.indicator-cyan {
+  color: rgba(0, 255, 255, 1);
+}
+.indicator-magenta {
+  color: rgba(255, 0, 255, 1);
+}
+.indicator-black {
+  color: rgba(0, 0, 0, 1);
+}
+
+/* Sidebar brand text */
+.sidebar-brand-text {
+  font-size: 1.1rem;
+  text-align: center;
+}
+
+/* Workaround for furo not properly hiding toc elements in the left side bar */
+.has-children > ul, 
+.has-children > label,
+.has-children > input {
+  display: none !important;
+}

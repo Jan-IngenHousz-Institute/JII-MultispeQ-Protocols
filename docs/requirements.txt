@@ -1,0 +1,5 @@
+furo==2021.11.16
+toml
+setuptools-scm>=6.3.2
+numpy>=2.1.2
+matplotlib>=3.9.2

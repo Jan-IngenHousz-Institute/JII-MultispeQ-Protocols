@@ -1,0 +1,41 @@
+[build-system]
+requires = ["setuptools>=64", "setuptools_scm>=8"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "jii_multispeq_protocols"
+authors = [
+  { name = "Sebastian Kuhlgert", email = "sebastian.kuhlgert@jan-ingenhousz-institute.org" },
+  { name = "David M. Kramer", email = "david.kramer@jan-ingenhousz-institute.org" },
+]
+description = "MultispeQ Protocols - Jan Ingenhousz Institut"
+readme = "README.md"
+requires-python = ">=3.8"
+keywords = ["MultispeQ Protocols"]
+license = { text = "MIT" }
+dynamic = ["version"]
+classifiers = [
+  "Intended Audience :: Scientists",
+  "Programming Language :: Python :: 3",
+]
+dependencies = ["pandas", "numpy", "tabulate"]
+
+[project.optional-dependencies]
+docs = ["sphinx", "sphinx-rtd-theme", "myst-parser", "matplotlib"]
+
+[project.urls]
+Source = "https://github.com/Jan-IngenHousz-Institute/JII-MultispeQ-Protocols"
+Documentation = "https://jan-ingenhousz-institute.github.io/JII-MultispeQ-Protocols/"
+Changelog = "https://github.com/Jan-IngenHousz-Institute/JII-MultispeQ"
+
+# [tool.setuptools_scm]
+
+[tool.setuptools.packages.find]
+where = ["."]
+exclude = ["*.tests*", "*.tests.*"]
+# namespaces = false  # true by default
+
+[tool.sphinx]
+project = "JII - MultispeQ Protocols"
+author = "Sebastian Kuhlgert"
+copyright = "Jan Ingenhousz Institute"
