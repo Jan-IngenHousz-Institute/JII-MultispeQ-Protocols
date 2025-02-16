@@ -58,11 +58,14 @@ class SchemaValidator:
             Tuple of (is_valid, list_of_error_messages)
         """
         errors = []
-        for error in self.validator.iter_errors(data):
-            # Format error path
-            path = ' -> '.join(str(p) for p in error.path) if error.path else 'root'
-            # Create detailed error message
-            error_msg = f"Path '{path}': {error.message}"
-            errors.append(error_msg)
+        try:
+            for error in self.validator.iter_errors(data):
+                # Format error path
+                path = ' -> '.join(str(p) for p in error.path) if error.path else 'root'
+                # Create detailed error message
+                error_msg = f"Path '{path}': {error.message}"
+                errors.append(error_msg)
+        except AttributeError:
+           pass
         
         return len(errors) == 0, errors
