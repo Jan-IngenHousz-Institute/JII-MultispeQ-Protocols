@@ -14,9 +14,9 @@ def validate ( protocol=None, verbose=False ):
   Test protocol
 
   :param protocol: Protocol code to test
-  :param type: dict or str
+  :type protocol: dict or str
   :param verbose: Print errors
-  :param type: bool
+  :type verbose: bool
 
   :return: True if tests are passed with an empty list, otherwise False with a list of errors
   :rtype: bool, list
