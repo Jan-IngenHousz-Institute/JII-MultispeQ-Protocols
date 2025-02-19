@@ -17,7 +17,7 @@
           "string",
           "number"
         ],
-        "pattern": "(^@[nps]{1}[0-9]{1,2}:[0-9]{1,2}$)|(^(previous_)?light_intensity$)|(^(p_)?light$)",
+        "pattern": "(^@[nps]{1}[0-9]{1,2}(:[0-9]{1,2}){,1}$)|(^(previous_)?light_intensity$)|(^(p_)?light$)",
         "description": "Input must be a number, light_intensity, previous_light_intensity, p_light, or a variable reference (@s0, @p0, @n0:1)"
       }
     },
