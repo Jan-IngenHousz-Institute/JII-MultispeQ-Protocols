@@ -172,6 +172,30 @@
             2000
           ]
         },
+        "bleed_correction": {
+          "type": "integer",
+          "enum": [
+            0,
+            1
+          ],
+          "description": "Set to 0 to disables the application of electronic offsets corrections, otherwise set to 1 or ignore parameter",
+          "examples": [
+            1
+          ],
+          "default": 1
+        },
+        "check_battery": {
+          "type": "integer",
+          "enum": [
+            0,
+            1
+          ],
+          "description": "Set to 1, otherwise set to 0 or ignore parameter. Adds error message \"battery low\" when active and battery level is below 10%",
+          "examples": [
+            1
+          ],
+          "default": 0
+        },
         "dac_lights": {
           "type": "integer",
           "enum": [
@@ -204,6 +228,23 @@
                 3
               ]
             ]
+          ]
+        },
+        "do_once": {
+          "type": "integer",
+          "enum": [
+            0,
+            1
+          ],
+          "description": "Set to 1, to execute a protocol in a repeating set only one time, otherwise set to 0",
+          "examples": [
+            1
+          ]
+        },
+        "e_time": {
+          "description": "When added, returns elapsed time since timer started with (s_time) in [ms]. Value for started timer reflects time elapsed since protocol start. Format: `[timer started, elapsed time]`",
+          "examples": [
+            1
           ]
         },
         "energy_min_wake_time": {
@@ -549,6 +590,15 @@
             ]
           ]
         },
+        "protocol_averages": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 1000000,
+          "description": "Sets the number of times a sub-protocol is repeated and the results are averaged",
+          "examples": [
+            5
+          ]
+        },
         "protocol_repeats": {
           "type": "number",
           "minimum": 0,
@@ -717,6 +767,12 @@
                 2
               ]
             ]
+          ]
+        },
+        "s_time": {
+          "description": "When added, starts timer to return elapesed time with (e_time) in [ms]",
+          "examples": [
+            1
           ]
         },
         "save": {
