@@ -21,7 +21,7 @@ classifiers = [
 dependencies = ["pandas", "numpy", "tabulate"]
 
 [project.optional-dependencies]
-docs = ["sphinx", "sphinx-rtd-theme", "myst-parser", "matplotlib"]
+docs = ["sphinx", "sphinx-rtd-theme", "myst-parser", "matplotlib", "toml"]
 
 [project.urls]
 Source = "https://github.com/Jan-IngenHousz-Institute/JII-MultispeQ-Protocols"
