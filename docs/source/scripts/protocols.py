@@ -64,10 +64,10 @@ def generate_module_rst():
     elements= "\n  ".join(rst_toctree)
   )
 
-  path = os.path.join( os.path.dirname(__file__), 'protocols.rst' )
+  path = os.path.join( os.path.dirname(__file__), '../protocols.rst' )
   if os.path.exists( path ):
     os.remove( path )
-  with open( os.path.join( os.path.dirname(__file__), 'protocols.rst' ), 'w+') as f:
+  with open( os.path.join( os.path.dirname(__file__), '../protocols.rst' ), 'w+') as f:
       f.write(rst_content)
 
 
@@ -119,7 +119,7 @@ def generate_individual_module_rst():
   package = jii_multispeq_protocols.protocols
   package_name = package.__name__
   
-  dir_path = os.path.join( os.path.dirname(__file__), 'protocols' )
+  dir_path = os.path.join( os.path.dirname(__file__), '..', 'protocols' )
 
   if os.path.exists( dir_path ):
     shutil.rmtree( dir_path )  
@@ -146,7 +146,8 @@ def generate_individual_module_rst():
             error_warning += "  + %s\n" % error
 
       if isinstance(protocol_code, (str,list,dict)):
-        code = ".. code-block:: python\n\n   "
+
+        code += ".. code-block:: python\n\n   "
         code += pprint.pformat( protocol_code, width=80  )
       
     else:
@@ -171,10 +172,5 @@ def generate_individual_module_rst():
       fn= fn
     )    
       
-    with open( os.path.join( os.path.dirname(__file__), 'protocols', module_name+'.rst' ), 'w') as f:
+    with open( os.path.join( os.path.dirname(__file__), '..', 'protocols', module_name+'.rst' ), 'w') as f:
       f.write(rst_content)
-
-
-generate_module_rst()
-
-generate_individual_module_rst()

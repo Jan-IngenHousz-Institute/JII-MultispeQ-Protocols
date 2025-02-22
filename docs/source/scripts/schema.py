@@ -131,12 +131,12 @@ def schema_to_rst():
   )
 
   ## Generate path for documention file
-  path = os.path.join( os.path.dirname(__file__), 'protocol-schema.rst' )
+  path = os.path.join( os.path.dirname(__file__), '..', 'protocol-schema.rst' )
   if os.path.exists( path ):
     os.remove( path )
     
   ## Write out file
-  with open( os.path.join( os.path.dirname(__file__), 'protocols-schema.rst' ), 'w+') as f:
+  with open( os.path.join( os.path.dirname(__file__), '..', 'protocols-schema.rst' ), 'w+') as f:
       f.write(rst_content)
 
 def cmd_details(details, schema, level=0):
@@ -298,6 +298,3 @@ def cmd_example(details, schema, cmd):
   example = "\n".join(["  " + str(x) for x in example.split("\n")])
 
   return example
-
-## Build schema based documentation
-schema_to_rst()

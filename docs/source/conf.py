@@ -80,3 +80,28 @@ autodoc_undoc_members = True
 autodoc_exclude_members = "__weakref__"
 
 add_module_names = False
+
+
+# -- Pre-Build content generation ----------------------------------------
+sys.path.insert(0, os.path.abspath('./scripts'))
+
+# Import your scripts
+import protocols
+import schema
+
+def setup(app):
+    """Set up the Sphinx extension."""
+    # Register callback to run before builder initialization
+    app.connect('builder-inited', run_pre_build)
+    return {
+        'version': '1.0',
+        'parallel_read_safe': True,
+        'parallel_write_safe': True,
+    }
+
+def run_pre_build(app):
+    """Execute pre-build scripts."""
+    # Run your scripts
+    protocols.generate_module_rst()
+    protocols.generate_individual_module_rst()
+    schema.schema_to_rst()
