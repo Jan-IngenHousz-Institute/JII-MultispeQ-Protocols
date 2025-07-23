@@ -37,13 +37,13 @@ Definitions
   In Python, ``null`` is analogous to ``None``.
 
 **Number**
-  The ``number`` type is used for any numeric type, either ``integers`` or ``floating point`` numbers.
+  The ``number`` type is used for any numeric type, either ``integers`` or ``floating point`` numbers (``int`` or ``float`` in Python).
 
 **Object**
   In Python, "objects" are analogous to the ``dict`` type. An important difference, however, is that while Python dictionaries may use anything hashable as a key, in JSON all the keys must be strings.
 
 **String**
-  The ``string`` type is used for strings of text. It may contain Unicode characters.
+  The ``string`` type, in Python ``str`` is used for strings of text. It may contain Unicode characters.
 """
 
 
