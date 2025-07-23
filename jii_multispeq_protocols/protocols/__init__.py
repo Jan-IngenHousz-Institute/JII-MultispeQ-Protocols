@@ -1,3 +1,3 @@
 """
-A collection of protocols for the MultispeQ
+A collection of curated protocols for the MultispeQ.
 """
