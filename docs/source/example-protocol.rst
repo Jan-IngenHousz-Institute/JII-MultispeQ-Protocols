@@ -87,5 +87,6 @@ Fs and Fm' values. For this the numpy package is used.
       'Fmp': 13056.6,
       'Phi2': 0.554,
       'LEF': 3.770,
-      'PAR': 17 
+      'PAR': 17,
+      'Fluorescence Trace': [273, 270, 248, 242, 240, 239, 234, 234, 238, 254, ...]
     }
