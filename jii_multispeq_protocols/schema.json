@@ -241,6 +241,29 @@
             1
           ]
         },
+        "dw": {
+          "type": "array",
+          "description": "Digital write to \"digital_write or dw\" to a specific pin number",
+          "prefixItems": [
+            {
+              "type": "integer",
+              "minimum": 0,
+              "maximum": 34,
+              "description": "Set the pin number (see: Teensy 3.2 pin layout)"
+            },
+            {
+              "type": "integer",
+              "enum": [
+                0,
+                1
+              ],
+              "description": "Set to 1, to enable digital_write, otherwise set to 0"
+            }
+          ],
+          "examples": [
+            [14,0]
+          ]
+        },
         "e_time": {
           "description": "When added, returns elapsed time since timer started with (s_time) in [ms]. Value for started timer reflects time elapsed since protocol start. Format: `[timer started, elapsed time]`",
           "examples": [
@@ -728,13 +751,19 @@
           "items": [
             {
               "type": "string",
-              "pattern": "^userdef\\[[0-9]\\]$"
+              "pattern": "^userdef\\[[0-9]\\]|settings|device_mod$"
             }
           ],
-          "description": "Load value from device memory (EEPROM).",
+          "description": "Load value from device memory (EEPROM) or receive device settings (`settings`) or device modifications (`device_mod`)",
           "examples": [
             [
               "userdef[1]"
+            ],
+            [
+              "settings"
+            ],
+            [
+              "device_mod"
             ]
           ]
         },
