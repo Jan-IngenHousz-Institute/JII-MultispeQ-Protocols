@@ -45,7 +45,7 @@
             "string",
             "number"
           ],
-          "description": "Intensity in in µE * s⁻¹ * m⁻² (PAR)"
+          "description": "Intensity in µE * s⁻¹ * m⁻² (PAR) - Only for LEDs in the range of 400 nm - 700 nm"
         }
       ],
       "minItems": 3,
@@ -87,7 +87,7 @@
             0,
             1
           ],
-          "description": "ADC values are outputted in data_raw instead of the regular output",
+          "description": "ADC (analog to digital converter) values are outputted in `data_raw` instead of the regular output",
           "examples": [
             0
           ]
@@ -158,7 +158,7 @@
           "type": "number",
           "minimum": 0,
           "maximum": 10000,
-          "description": "Number of times to average the protocol",
+          "description": "Number of times to average the protocol (only avarage is returned)",
           "examples": [
             3
           ]
