@@ -97,3 +97,14 @@
 .has-children > input {
   display: none !important;
 }
+
+/* Code block height */
+.literal-block-wrapper pre {
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
+/* Table alignment */
+.table-wrapper .docutils {
+  margin-left: 0
+}
