@@ -43,6 +43,7 @@ for protential issues before running it on a MultispeQ.
 
    protocol-elements
    protocols-schema
+   porting
 
 .. toctree::
    :maxdepth: 1
