@@ -64,6 +64,7 @@ def _analyze ( _data ):
   output['Phi2'] = phi2
   output['LEF'] = lef
   output['PAR'] = _data['light_intensity']
+  output['Fluorescence Trace'] = _data['data_raw']
 
   # Return data
   return output
