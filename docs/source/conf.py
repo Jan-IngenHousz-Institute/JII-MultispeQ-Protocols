@@ -6,6 +6,7 @@
 import os
 import sys
 import toml
+from sphinx.ext.autodoc import ModuleDocumenter
 # from setuptools_scm import get_version
 # from importlib.metadata import version as get_version
 
@@ -38,10 +39,9 @@ extensions = [
   'sphinx.ext.duration',
   "sphinx.ext.napoleon",
   "sphinx.ext.viewcode",
+  "sphinx_toolbox.collapse",
   "myst_parser",
   "matplotlib.sphinxext.plot_directive",
-  # "sphinx_git",
-  # "non_module_doc_ext",
   "sphinxcontrib.mermaid"
 ]
 
@@ -88,21 +88,54 @@ sys.path.insert(0, os.path.abspath('./scripts'))
 
 # Import your scripts
 import protocols
+import protocol
 import schema
 
 def setup(app):
-    """Set up the Sphinx extension."""
-    # Register callback to run before builder initialization
-    app.connect('builder-inited', run_pre_build)
-    return {
-        'version': '1.0',
-        'parallel_read_safe': True,
-        'parallel_write_safe': True,
-    }
+  """Set up the Sphinx extension."""
+  # Register callback to run before builder initialization
+  app.connect('config-inited', run_pre_build)
 
-def run_pre_build(app):
-    """Execute pre-build scripts."""
-    # Run your scripts
-    protocols.generate_module_rst()
-    protocols.generate_individual_module_rst()
-    schema.schema_to_rst()
+  app.connect('autodoc-process-docstring', process_docstring)
+  
+  # Register the custom option for modules
+  ModuleDocumenter.option_spec['no-title'] = lambda x: True
+  
+  return {
+      'version': '1.0',
+      'parallel_read_safe': True,
+      'parallel_write_safe': True,
+  }
+
+def run_pre_build(app, config):
+  """Execute pre-build scripts."""
+  # Run your scripts
+  protocols.generate_module_rst()
+  try:
+    protocol.generate_individual_module_rst()
+  except Exception as e:
+    print(f"Error: {e}")
+    import traceback
+    traceback.print_exc()
+  schema.schema_to_rst()
+
+
+def process_docstring(app, what, name, obj, options, lines):
+  if what == 'module' and 'no-title' in options:
+    # Remove only the first heading found
+    for i in range(len(lines) - 1):
+      current_line = lines[i]
+      next_line = lines[i + 1]
+      
+      if (current_line.strip() and next_line and 
+        len(set(next_line.strip())) == 1 and 
+        next_line.strip()[0] in '=-~^'):
+        
+        # Remove the heading
+        lines.pop(i + 1)  # Remove underline
+        lines.pop(i)      # Remove title
+        
+        # Clean up extra empty lines
+        while i < len(lines) and not lines[i].strip():
+          lines.pop(i)
+        break
