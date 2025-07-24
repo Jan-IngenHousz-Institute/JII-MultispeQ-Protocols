@@ -16,8 +16,7 @@ _protocol = [
     "averages": 1,
     "environmental": [
       [
-        "light_intensity",
-        0
+        "light_intensity"
       ]
     ]
   }
@@ -31,7 +30,7 @@ def _analyze ( _data ):
   # Define the output dictionary here
   output = {}
 
-  output['PAR'] = _data['light_intesity']
+  output['PAR'] = _data['light_intensity']
   output['red'] = _data['r']
   output['green'] = _data['g']
   output['blue'] = _data['b']
