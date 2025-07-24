@@ -26,7 +26,7 @@ _protocol = [
             [ 3 ], [ 3 ], [ 3 ]
         ],
         "pulsed_lights_brightness": [
-            [ 2000 ], [ 30 ], [ 30 ]
+            [ 2000 ], [ 2000 ], [ 2000 ]
         ],
         "nonpulsed_lights": [
             [ 2 ], [ 2 ], [ 2 ]
