@@ -9,6 +9,7 @@ import sys
 
 import jii_multispeq_protocols
 from jii_multispeq_protocols.validate import validate
+from jii_multispeq_protocols.visualize import generate
 
 try:
     __version__ = version("jii_multispeq_protocols")

@@ -42,6 +42,7 @@ extensions = [
   "matplotlib.sphinxext.plot_directive",
   # "sphinx_git",
   # "non_module_doc_ext",
+  "sphinxcontrib.mermaid"
 ]
 
 templates_path = ["_templates"]
