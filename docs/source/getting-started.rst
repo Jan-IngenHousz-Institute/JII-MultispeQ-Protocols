@@ -94,6 +94,31 @@ there are any unknown commands used or if there are any other issues.
   :show-inheritance:
   :no-index:
 
+Visualization :sup:`beta`
+-------------------------
+
+This package provides a function to visualize your protocol as a flow chart using `Mermaid <https://mermaid.js.org/>`_.
+
+.. code-block:: python
+
+   _protocol = [{...}]
+
+   # Generate a chart from a protocol
+   chart = generate( _protocol )
+
+   # Generate a chart with reverse direction
+   chart = generate( _protocol, direction = 'BT' )
+
+   # Generate a chart with different styles
+   chart = generate( _protocol, style = {...} )
+
+.. automodule:: jii_multispeq_protocols.visualize
+  :exclude-members:
+  :undoc-members:
+  :show-inheritance:
+
+.. autofunction:: jii_multispeq_protocols.visualize.generate
+   :no-index:
 
 Publish
 -------
