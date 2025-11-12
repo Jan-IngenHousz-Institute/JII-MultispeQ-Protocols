@@ -18,10 +18,10 @@ classifiers = [
   "Intended Audience :: Scientists",
   "Programming Language :: Python :: 3",
 ]
-dependencies = ["pandas", "numpy", "tabulate", "sphinxcontrib-mermaid"]
+dependencies = ["scipy", "numpy", "jsonschema"]
 
 [project.optional-dependencies]
-docs = ["sphinx", "sphinx-rtd-theme", "myst-parser", "matplotlib", "toml"]
+docs = ["sphinx", "sphinx-rtd-theme", "myst-parser", "matplotlib", "sphinxcontrib-mermaid", "tabulate", "toml"]
 
 [project.urls]
 Source = "https://github.com/Jan-IngenHousz-Institute/JII-MultispeQ-Protocols"
