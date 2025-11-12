@@ -623,11 +623,16 @@
           ]
         },
         "protocol_repeats": {
-          "type": "number",
+          "type": [
+            "string",
+            "number"
+          ],
           "minimum": 0,
           "maximum": 1000000,
+          "pattern": "(^@n{1}[0-9]{1,2}:[0-9]{1,2}$)|(^#l[0-9]+)",
           "examples": [
-            30
+            30,
+            "@n1:1" 
           ]
         },
         "protocols": {
@@ -969,7 +974,7 @@
             "$ref": "#/$defs/array_num_str_var",
             "maxItems": 10
           },
-          "maxItems": 4,
+          "maxItems": 10,
           "description": "Storing variables in arrays available within the protocol",
           "examples": [
             [
