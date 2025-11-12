@@ -172,4 +172,7 @@ Thumbs.db
 
 # Sphinx-specific files
 docs/build/
+docs/source/protocols/**/*
+docs/source/protocols.rst
+docs/source/protocols-schema.rst
 docs/source/**/PhotosynQ_*[.json, .pickle]
