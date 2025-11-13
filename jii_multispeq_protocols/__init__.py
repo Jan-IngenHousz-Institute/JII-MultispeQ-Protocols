@@ -23,21 +23,32 @@ __all__ = ['__version__']
 # Not sure if this needs to be here...
 invalidate_caches()
 
-# Get protocol package
-protocol_pkg = import_module('jii_multispeq_protocols.protocols')
+def import_package_recursive(base_module_name, target_namespace):
+    try:
+        protocol_pkg = import_module(base_module_name)
+        
+        # Iterate through all modules in protocol package
+        for _, name, is_pkg in iter_modules(protocol_pkg.__path__):
+            
+            # Import each module/subpackage
+            module_name = f'{base_module_name}.{name}'
+            
+            if module_name not in sys.modules:
+                try:
+                    module = import_module(module_name)
+                except ImportError:
+                    continue
+            else:
+                module = sys.modules[module_name]
+            
+            # Add the module to namespace
+            setattr(target_namespace, name, module)
+            
+            # If it's a subpackage, recurse into it
+            if is_pkg:
+                import_package_recursive(module_name, target_namespace)
+                
+    except ImportError as e:
+        print(f"Could not import {base_module_name}: {e}")
 
-# Iterate through all modules in protocol package
-for loader, name, is_pkg in iter_modules(protocol_pkg.__path__):
-    
-    # Import each module
-    module_name = f'jii_multispeq_protocols.protocols.{name}'
-
-    if module_name not in sys.modules:
-        # Import module only if not already imported
-        module = import_module(module_name)
-    else:
-        # Use existing module if already imported
-        module = sys.modules[module_name]
-    
-    # Add the module to jii_multispeq_protocols namespace
-    setattr(jii_multispeq_protocols, name, module)
+import_package_recursive('jii_multispeq_protocols.protocols', jii_multispeq_protocols)
