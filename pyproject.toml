@@ -18,10 +18,23 @@ classifiers = [
   "Intended Audience :: Scientists",
   "Programming Language :: Python :: 3",
 ]
-dependencies = ["scipy", "numpy", "jsonschema"]
+dependencies = [
+  "scipy>=1.8",
+  "numpy>=1.22",
+  "jsonschema>=4.4"]
 
 [project.optional-dependencies]
-docs = ["sphinx", "sphinx-rtd-theme", "myst-parser", "matplotlib", "sphinxcontrib-mermaid", "tabulate", "toml", "sphinx-copybutton", "sphinxext-opengraph"]
+docs = [
+  "sphinx>=7.2,<8.0",
+  "furo>=2023.9",
+  "myst-parser>=3.0",
+  "matplotlib>=3.8",
+  "tabulate>=0.9",
+  "toml>=0.10",
+  "sphinx-copybutton>=0.5",
+  "sphinxcontrib-mermaid>=1.0",
+  "sphinxext-opengraph>=0.9"
+]
 
 [project.urls]
 Source = "https://github.com/Jan-IngenHousz-Institute/JII-MultispeQ-Protocols"
