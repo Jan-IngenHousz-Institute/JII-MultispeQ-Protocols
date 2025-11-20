@@ -47,6 +47,13 @@ for protential issues before running it on a MultispeQ.
 
 .. toctree::
    :maxdepth: 1
+   :caption: Downloads
+   :hidden:
+
+   downloads
+
+.. toctree::
+   :maxdepth: 1
    :caption: Resources
    :hidden:
 
