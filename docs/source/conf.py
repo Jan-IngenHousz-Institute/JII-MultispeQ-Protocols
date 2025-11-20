@@ -8,6 +8,7 @@ import sys
 import toml
 from sphinx.ext.autodoc import ModuleDocumenter
 import traceback
+from datetime import datetime
 
 # from setuptools_scm import get_version
 # from importlib.metadata import version as get_version
@@ -25,7 +26,7 @@ config = toml.load("../../pyproject.toml")
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#project-information
 
 project = config["tool"]["sphinx"]["project"]
-copyright = "%Y - "  + config["tool"]["sphinx"]["copyright"]
+copyright = "%s - %s" % (datetime.now().year, config["tool"]["sphinx"]["copyright"])
 author = config["tool"]["sphinx"]["author"]
 # release = get_version(root=os.path.dirname(__file__), relative_to=__file__)
 # release = get_version(root='../../', relative_to=__file__)

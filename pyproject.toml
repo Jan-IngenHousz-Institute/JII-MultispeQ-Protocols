@@ -21,7 +21,8 @@ classifiers = [
 dependencies = [
   "scipy>=1.8",
   "numpy>=1.22",
-  "jsonschema>=4.4"]
+  "jsonschema>=4.4"
+]
 
 [project.optional-dependencies]
 docs = [
