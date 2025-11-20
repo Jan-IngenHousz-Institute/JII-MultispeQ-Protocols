@@ -33,7 +33,8 @@ docs = [
   "toml>=0.10",
   "sphinx-copybutton>=0.5",
   "sphinxcontrib-mermaid>=1.0",
-  "sphinxext-opengraph>=0.9"
+  "sphinxext-opengraph>=0.9",
+  "sphinx-toolbox>=4.0"
 ]
 
 [project.urls]
