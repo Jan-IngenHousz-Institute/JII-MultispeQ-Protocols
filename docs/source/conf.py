@@ -7,6 +7,8 @@ import os
 import sys
 import toml
 from sphinx.ext.autodoc import ModuleDocumenter
+import traceback
+
 # from setuptools_scm import get_version
 # from importlib.metadata import version as get_version
 
@@ -30,6 +32,10 @@ author = config["tool"]["sphinx"]["author"]
 release = "0.0.2"
 version = ".".join(release.split('.')[:2])
 
+# Open graph parameters
+ogp_site_url = 'https://docs.example.org/'
+ogp_image = "_static/images/jan-ingenhousz-institute-logo-header.webp"
+
 # -- General configuration ---------------------------------------------------
 # https://www.sphinx-doc.org/en/master/usage/configuration.html#general-configuration
 
@@ -40,8 +46,10 @@ extensions = [
   "sphinx.ext.napoleon",
   "sphinx.ext.viewcode",
   "sphinx_toolbox.collapse",
+  "sphinx_copybutton",
   "myst_parser",
   "matplotlib.sphinxext.plot_directive",
+  "sphinxext.opengraph",
   "sphinxcontrib.mermaid"
 ]
 
@@ -115,7 +123,6 @@ def run_pre_build(app, config):
     protocol.generate_individual_module_rst()
   except Exception as e:
     print(f"Error: {e}")
-    import traceback
     traceback.print_exc()
   schema.schema_to_rst()
 
